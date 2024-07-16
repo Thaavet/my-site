@@ -21,13 +21,13 @@
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="asset/css/mdb.min.css" />
+    
       </head>
       <body>
     <header>
     
-  <link rel="stylesheet" href="../asset/css/mdb.min.css">
-  <header>
-<header>
+
+
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -39,7 +39,10 @@
         width=" 55%"
         alt="Davide Finocchio logo-navbar"
         loading="lazy"
+        
+        
       /> 
+      <a href="./index.html" class="navbar-brand">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="./index.html">Home</a>
@@ -62,7 +65,7 @@
       height: 400px;
     
     "
-  >
+  ><div class="text-white fade-in">
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
@@ -75,25 +78,26 @@
       </div>
     </div>
   </div>
+</div>
 </header>
  <main>
   <div class="container-fluid text-center my-5">
     <h4>Chi sono</h4>
-    <div class="row my-5 text-center">
+    <div class="row my-5 text-center slide-in-left">
      <p>Sono Davide, mi definisco una persona estremamente curiosa e che piace stare a contatto con le persone.
        Fin da piccolo mi sono appassionato allo sport  e alla tecnologia, tutto questo mi ha portato ad avvicinarmi alla psicologia in particolare all'utilizzo di videogiochi e applicazione nella psicologia dello sport e nella promozione del benessere ogni giorno.</p> 
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-4 align-items-center">
+      <div class="col-md-4 align-items-center slide-in-right">
         <img src="./asset/img/davide-finocchio-photo.png" alt="Davide Finocchio foto">
         <p class="my-5"> Davide Finocchio (Vasto, 26/05/1998)</p> </div>
  
-         <div class="col-md-4">
+         <div class="col-md-4 slide-in-right">
           <i class="fas fa-brain fa-4x align-items-center text-primary"></i>
           <p class="my-4"> Laurea Magistrale in Psicologia del benessere riabilitazione ed empowerment</p>
-          <i class="fas fa-laptop-code fa-4x align-items-center text-primary"></i>
+          <i class="fas fa-laptop-code fa-4x align-items-center text-primary slide-in-right"></i>
           <p class="my-4"> Programmazione web con HTML5 e CSS</p>
-          <i class="fas fa-heart-pulse fa-4x align-items-center text-primary""></i>
+          <i class="fas fa-heart-pulse fa-4x align-items-center text-primary slide-in-right""></i>
           <p class="my-4"> Design e realizzazione di training con Neueofeedback</p>
 
 
@@ -143,5 +147,28 @@
     </div>
    
  </footer>
+ <script>
+  const slideInElements = document.querySelectorAll('.slide-in-left, .slide-in-right');
+  
+  const appearOptions = {
+    threshold: 0,
+    rootMargin: "0px 0px -100px 0px"
+  };
+  
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        return;
+      } else {
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+      }
+    });
+  }, appearOptions);
+  
+  slideInElements.forEach(element => {
+    appearOnScroll.observe(element);
+  });
+  </script>
   </body>
 </html>
